@@ -54,5 +54,12 @@ Vagrant::Config.run do |config|
         }
       }
     )
+
+    # das wäre noch nett anschließend auszuführen:
+    # export LC_ALL=en_US.UTF-8
+    # git clone git://github.com/eteubert/dotfiles.git
+    # notice: "go to ~/dotfiles and type `rake install` to setup dotfiles"
+    # sudo chsh -s /usr/bin/zsh vagrant
+    # sudo reboot
   end
 end
