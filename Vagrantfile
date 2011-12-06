@@ -25,8 +25,9 @@ Vagrant::Config.run do |config|
   # Share an additional folder to the guest VM. The first argument is
   # an identifier, the second is the path on the guest to mount the
   # folder, and the third is the path on the host to the actual folder.
-  config.vm.share_folder "theme", "/var/www/wordpress/wp-content/themes/theme",
-    "./theme"
+  config.vm.share_folder "themes"   , "/var/www/wordpress/wp-content/themes" , "./themes"
+  config.vm.share_folder "plugins"  , "/var/www/wordpress/wp-content/plugins", "./plugins"
+  config.vm.share_folder "wordpress", "/var/www/wordpress"                   , "./wordpress"
 
   # Enable provisioning with chef solo, specifying a cookbooks path (relative
   # to this Vagrantfile), and adding some recipes and/or roles.
@@ -38,7 +39,6 @@ Vagrant::Config.run do |config|
     chef.add_recipe "git"
     chef.add_recipe "apt"
     chef.add_recipe "wordpress"
-    # chef.add_recipe "custom"
 
     chef.json.merge!(
       "mysql" => {
