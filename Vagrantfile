@@ -32,8 +32,13 @@ Vagrant::Config.run do |config|
   # to this Vagrantfile), and adding some recipes and/or roles.
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = "cookbooks"
+    chef.add_recipe "vim"
+    chef.add_recipe "zsh"
+    chef.add_recipe "zlib"
+    chef.add_recipe "git"
     chef.add_recipe "apt"
     chef.add_recipe "wordpress"
+    # chef.add_recipe "custom"
 
     chef.json.merge!(
       "mysql" => {
