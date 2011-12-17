@@ -40,26 +40,19 @@ Vagrant::Config.run do |config|
     chef.add_recipe "apt"
     chef.add_recipe "wordpress"
 
-    chef.json.merge!(
-      "mysql" => {
-        "server_root_password" => "",
-        "allow_remote_root"    => true
-      },
-
-      "wordpress" => {
-        "db" => {
-          "database" => "wordpress",
-          "user"     => "wordpress",
-          "password" => "wordpress"
-        }
-      }
-    )
-
-    # das wäre noch nett anschließend auszuführen:
-    # export LC_ALL=en_US.UTF-8
-    # git clone git://github.com/eteubert/dotfiles.git
-    # notice: "go to ~/dotfiles and type `rake install` to setup dotfiles"
-    # sudo chsh -s /usr/bin/zsh vagrant
-    # sudo reboot
+    # chef.json.merge!(
+    #   :mysql => {
+    #     :server_root_password => "",
+    #     :allow_remote_root    => true
+    #   },
+    # 
+    #   :wordpress => {
+    #     :db => {
+    #       :database => "wordpress",
+    #       :user     => "wordpress",
+    #       :password => "wordpress"
+    #     }
+    #   }
+    # )
   end
 end

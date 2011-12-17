@@ -36,7 +36,7 @@ node.set['wordpress']['keys']['logged_in'] = secure_password
 node.set['wordpress']['keys']['nonce'] = secure_password
 
 remote_file "#{Chef::Config[:file_cache_path]}/wordpress-#{node['wordpress']['version']}.tar.gz" do
-  checksum node['wordpress']['checksum']
+  # checksum node['wordpress']['checksum']
   source "http://wordpress.org/wordpress-#{node['wordpress']['version']}.tar.gz"
   mode "0644"
 end
